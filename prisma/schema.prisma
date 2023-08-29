@@ -1,0 +1,54 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User{
+  id String @id @default(uuid())
+  name String
+  email String
+  password String
+  cpf String
+  endereco String?
+  stripe_customer_id String?
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
+
+  @@map("users")
+  subscriptions Subscription?
+  projects Project[] // 1 user pode ter vários projetos
+}
+
+model Subscription{
+  id String @id 
+  status String
+  priceId String
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
+
+  @@map("subscriptions")
+  userId String @unique
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Project {
+  id String @id @default(uuid())
+  name String
+  dados Json?
+  edificacao Json?
+  status Boolean @default(false)
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
+
+  @@map("projects")
+  user_id String 
+  user User @relation(fields: [user_id], references: [id])
+}
+

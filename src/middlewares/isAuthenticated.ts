@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { Request, Response, NextFunction, response } from 'express';
 import { verify } from 'jsonwebtoken';
 
@@ -17,7 +18,7 @@ export function isAuthenticated(
   const [, token] = authToken.split(' ');
 
   try {
-    const { sub } = verify(token, `${process.env.JWT_SECRET}`) as Payload;
+    const { sub } = verify(token, process.env.JWT_SECRET) as Payload;
 
     req.user_id = sub
     

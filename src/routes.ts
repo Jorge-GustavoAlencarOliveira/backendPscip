@@ -10,6 +10,7 @@ import { ListProjectController } from './controllers/project/ListProjectControll
 import { CountProjectController } from './controllers/project/CountProjectController';
 import { DetailsProjectController } from './controllers/project/DetailsProjectController';
 import { DeleteProjectController } from './controllers/project/DeleteProjectController';
+import { UptadeProjectController } from './controllers/project/UptadeProjectController';
 const router = Router();
 
 // Rotas User //
@@ -25,6 +26,6 @@ router.get('/projects', isAuthenticated, new ListProjectController().handle)
 router.get('/projects/count', isAuthenticated, new CountProjectController().handle)
 router.get('/project/details', isAuthenticated, new DetailsProjectController().handle)
 router.delete('/project', isAuthenticated, new DeleteProjectController().handle)
-
+router.put('/project/update', isAuthenticated, new UptadeProjectController().handle)
 
 export { router };

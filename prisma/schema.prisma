@@ -40,7 +40,6 @@ model Subscription{
 
 model Project {
   id String @id @default(uuid())
-  name String
   dados Json?
   edificacao Json?
   status Boolean @default(false)

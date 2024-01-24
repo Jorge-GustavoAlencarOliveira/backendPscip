@@ -15,7 +15,6 @@ class DetailsProjectService {
       select: {
         id: true,
         dados: true,
-        edificacao: true
       }
     })
     return project

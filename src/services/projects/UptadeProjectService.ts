@@ -2,15 +2,13 @@ import prismaClient from '../../prisma';
 import { Prisma } from '@prisma/client';
 
 interface ProjectProps{
-  name: string;
   user_id: string;
   id: string;
   dados: Prisma.JsonObject;
-  edificacao: Prisma.JsonArray
 }
 
 class UptadeProjectService{
-  async execute({id, user_id, name, dados, edificacao}:ProjectProps){
+  async execute({id, user_id, dados}:ProjectProps){
     const project = await prismaClient.project.findFirst({
       where: {
         id: id,
@@ -25,14 +23,11 @@ class UptadeProjectService{
         id: id
       },
       data: {
-        name: name,
         dados: dados,
-        edificacao: edificacao,
       },
       select:{
         id: true,
         dados: true,
-        edificacao: true
       }
     })
     return uptadeProject

@@ -1,17 +1,12 @@
 import prismaClient from '../../prisma';
 import { Prisma } from '@prisma/client';
 interface projectRequest {
-  name: string;
   user_id: string;
   dados: Prisma.JsonObject;
-  edificacao: Prisma.JsonArray
 }
 
 class CreateProjectService {
-  async execute({ name, user_id, dados, edificacao }: projectRequest) {
-    if (!name) {
-      throw new Error('Error');
-    }
+  async execute({user_id, dados}: projectRequest) {
     const numberProjects = await prismaClient.project.count({
       where: {
         user_id: user_id,
@@ -36,17 +31,13 @@ class CreateProjectService {
 
     const project = await prismaClient.project.create({
       data: {
-        name: name,
         user_id: user_id,
-        dados: dados,
-        edificacao: edificacao
+        dados: dados
       },
       select: {
         id: true,
-        name: true,
         status: true,
         dados: true,
-        edificacao: true
       },
     });
     return project;

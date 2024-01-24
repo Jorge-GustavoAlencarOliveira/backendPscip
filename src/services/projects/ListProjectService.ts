@@ -15,10 +15,11 @@ class ListProjectService {
       select:{
         id: true,
         status: true,
-        dados: true
+        dados: true,
+        created_at: true
       }
     });
-   
+
     return project;
   }
 }

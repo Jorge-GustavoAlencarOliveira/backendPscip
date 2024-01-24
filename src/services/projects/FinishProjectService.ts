@@ -17,7 +17,6 @@ class FinishProjectService {
           status: true,
         },
         select: {
-          name: true,
           id: true,
           status: true,
         },

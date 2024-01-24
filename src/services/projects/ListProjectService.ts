@@ -13,7 +13,6 @@ class ListProjectService {
         status: status === 'true' ? true : false
       },
       select:{
-        name: true,
         id: true,
         status: true,
         dados: true

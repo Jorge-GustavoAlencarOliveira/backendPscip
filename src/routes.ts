@@ -11,6 +11,11 @@ import { CountProjectController } from './controllers/project/CountProjectContro
 import { DetailsProjectController } from './controllers/project/DetailsProjectController';
 import { DeleteProjectController } from './controllers/project/DeleteProjectController';
 import { UptadeProjectController } from './controllers/project/UptadeProjectController';
+import { UpdateEdificacaoController } from './controllers/project/UpdateEdificacaoController';
+import { UptadeRiscosEspeciaisController } from './controllers/project/UpdateRiscosEspeciaisController';
+import { UptadeNivelRiscoController } from './controllers/project/UpdateNivelRiscoController';
+import { UptadeMedidadeSegurancaController } from './controllers/project/UpdateMedidasSegurancaController';
+
 const router = Router();
 
 // Rotas User //
@@ -26,6 +31,16 @@ router.get('/projects', isAuthenticated, new ListProjectController().handle)
 router.get('/projects/count', isAuthenticated, new CountProjectController().handle)
 router.get('/project/details', isAuthenticated, new DetailsProjectController().handle)
 router.delete('/project', isAuthenticated, new DeleteProjectController().handle)
-router.put('/project/update', isAuthenticated, new UptadeProjectController().handle)
+
+// update informações
+router.put('/project/informacoes', isAuthenticated, new UptadeProjectController().handle)
+// update edificacao
+router.put('/project/edificacao', isAuthenticated, new UpdateEdificacaoController().handle)
+// update Riscos Especiasi
+router.put('/project/riscosespeciais', isAuthenticated, new UptadeRiscosEspeciaisController().handle)
+// update Nível de Risco
+router.put('/project/nivelrisco', isAuthenticated, new UptadeNivelRiscoController().handle)
+// update Medidas de Segurança
+router.put('/project/medidasseguranca', isAuthenticated, new UptadeMedidadeSegurancaController().handle)
 
 export { router };

@@ -5,10 +5,11 @@ interface ProjectProps{
   user_id: string;
   id: string;
   dados: Prisma.JsonObject;
+  status: boolean
 }
 
 class UptadeProjectService{
-  async execute({id, user_id, dados}:ProjectProps){
+  async execute({id, user_id, dados, status}:ProjectProps){
     const project = await prismaClient.project.findFirst({
       where: {
         id: id,
@@ -24,10 +25,12 @@ class UptadeProjectService{
       },
       data: {
         dados: dados,
+        status: status
       },
       select:{
         id: true,
         dados: true,
+        status: true
       }
     })
     return uptadeProject

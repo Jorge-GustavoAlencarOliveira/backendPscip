@@ -15,6 +15,10 @@ class DetailsProjectService {
       select: {
         id: true,
         dados: true,
+        edificacao: true,
+        riscosEspeciais: true,
+        medidasSeguranca: true,
+        niveldeRisco: true
       }
     })
     return project

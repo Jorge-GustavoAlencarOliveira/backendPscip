@@ -3,15 +3,14 @@ import { UptadeProjectService } from "../../services/projects/UptadeProjectServi
 
 class UptadeProjectController{
   async handle(req: Request, res: Response){
-    const {id, name, dados, edificacao} = req.body
+    const {id, dados, status} = req.body
     const user_id = req.user_id
     const uptadeProjectService = new UptadeProjectService();
     const project = await uptadeProjectService.execute({
-      name,
       user_id,
       dados,
-      edificacao,
-      id
+      id,
+      status
     })
     return res.json(project)
   }

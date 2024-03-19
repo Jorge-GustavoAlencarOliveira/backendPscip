@@ -2,11 +2,11 @@ import prismaClient from '../../prisma';
 import { Prisma } from '@prisma/client';
 interface projectRequest {
   user_id: string;
-  dados: Prisma.JsonObject;
+  // dados: Prisma.JsonObject;
 }
 
 class CreateProjectService {
-  async execute({user_id, dados}: projectRequest) {
+  async execute({user_id}: projectRequest) {
     const numberProjects = await prismaClient.project.count({
       where: {
         user_id: user_id,
@@ -32,12 +32,12 @@ class CreateProjectService {
     const project = await prismaClient.project.create({
       data: {
         user_id: user_id,
-        dados: dados
+        // dados: dados
       },
       select: {
         id: true,
         status: true,
-        dados: true,
+        // dados: true,
       },
     });
     return project;

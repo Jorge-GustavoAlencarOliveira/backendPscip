@@ -42,6 +42,9 @@ model Project {
   id String @id @default(uuid())
   dados Json?
   edificacao Json?
+  riscosEspeciais Json?
+  niveldeRisco Json?
+  medidasSeguranca Json?
   status Boolean @default(false)
   created_at DateTime? @default(now())
   updated_at DateTime? @default(now())

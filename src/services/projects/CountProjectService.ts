@@ -10,6 +10,7 @@ class CountProjectService {
     const numberProjects = await prismaClient.project.count({
       where: {
         user_id: user_id,
+        status: true
       },
     });
 

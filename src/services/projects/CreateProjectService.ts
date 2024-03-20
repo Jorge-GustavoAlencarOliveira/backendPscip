@@ -1,5 +1,5 @@
 import prismaClient from '../../prisma';
-import { Prisma } from '@prisma/client';
+
 interface projectRequest {
   user_id: string;
   // dados: Prisma.JsonObject;
@@ -22,12 +22,12 @@ class CreateProjectService {
       },
     });
 
-    if (
-      userSubscriptions?.subscriptions?.status !== 'active' &&
-      numberProjects >= 3
-    ) {
-      throw new Error('não autorizado');
-    }
+    // if (
+    //   userSubscriptions?.subscriptions?.status !== 'active' &&
+    //   numberProjects >= 3
+    // ) {
+    //   throw new Error('não autorizado');
+    // }
 
     const project = await prismaClient.project.create({
       data: {

@@ -4,7 +4,7 @@ import prismaClient from "../../prisma";
 interface RiscosEspeciaisProps {
   id: string,
   user_id: string,
-  riscosEspeciais: Prisma.JsonObject
+  riscosEspeciais: Prisma.JsonArray
 }
 
 export class UpdateRiscosEspeciaisService{

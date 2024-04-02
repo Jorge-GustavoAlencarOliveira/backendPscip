@@ -15,6 +15,8 @@ import { UpdateEdificacaoController } from './controllers/project/UpdateEdificac
 import { UptadeRiscosEspeciaisController } from './controllers/project/UpdateRiscosEspeciaisController';
 import { UptadeNivelRiscoController } from './controllers/project/UpdateNivelRiscoController';
 import { UptadeMedidadeSegurancaController } from './controllers/project/UpdateMedidasSegurancaController';
+import { UpdateGerenciamentoController } from './controllers/project/UpdateGerenciamentoController';
+import { UpdateDimensionamentoController } from './controllers/project/UpdateDimensionamentoController';
 
 const router = Router();
 
@@ -42,5 +44,10 @@ router.put('/project/riscosespeciais', isAuthenticated, new UptadeRiscosEspeciai
 router.put('/project/nivelrisco', isAuthenticated, new UptadeNivelRiscoController().handle)
 // update Medidas de Segurança
 router.put('/project/medidasseguranca', isAuthenticated, new UptadeMedidadeSegurancaController().handle)
+//update Gerenciamento 
+router.put('/project/gerenciamento', isAuthenticated, new UpdateGerenciamentoController().handle)
+//update Dimensionamento
+router.put('/project/dimensionamento', isAuthenticated, new UpdateDimensionamentoController().handle)
+
 
 export { router };

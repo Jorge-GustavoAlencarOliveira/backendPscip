@@ -45,6 +45,8 @@ model Project {
   riscosEspeciais Json?
   niveldeRisco Json?
   medidasSeguranca Json?
+  dimensionamento Json?
+  gerenciamento Json?
   status Boolean @default(false)
   created_at DateTime? @default(now())
   updated_at DateTime? @default(now())

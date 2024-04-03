@@ -18,7 +18,10 @@ class DetailsProjectService {
         edificacao: true,
         riscosEspeciais: true,
         medidasSeguranca: true,
-        niveldeRisco: true
+        niveldeRisco: true,
+        gerenciamento: true,
+        status: true,
+        dimensionamento: true
       }
     })
     return project

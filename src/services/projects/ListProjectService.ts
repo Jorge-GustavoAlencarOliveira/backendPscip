@@ -16,10 +16,10 @@ class ListProjectService {
         id: true,
         status: true,
         dados: true,
+        niveldeRisco: true,
         created_at: true
       }
     });
-
     return project;
   }
 }

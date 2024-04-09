@@ -17,6 +17,7 @@ class ListProjectService {
         status: true,
         dados: true,
         niveldeRisco: true,
+        gerenciamento: true,
         created_at: true
       }
     });

@@ -4,7 +4,7 @@ import prismaClient from "../../prisma";
 type dimensionamentoProps = {
   id: string;
   user_id: string;
-  dimensionamento: Prisma.JsonArray
+  dimensionamento: Prisma.JsonObject
 }
 
 export class UpdateDimensionamentoService{
